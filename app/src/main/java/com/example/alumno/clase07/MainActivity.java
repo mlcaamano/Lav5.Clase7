@@ -2,6 +2,7 @@ package com.example.alumno.clase07;
 
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("Shared", "True");
 
+        //Crear un dialogo
+
+
+
     }
 
     @Override
@@ -44,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId()==R.id.asas){
             Log.d("Click", "Opcion de menu");
             SharedPreferences pref = getSharedPreferences("miconfing", MODE_PRIVATE);
+
+            MiDialogFragment dialog = new MiDialogFragment();
+            dialog.show(getSupportFragmentManager(), "dialogo");
 
             pref.edit().putBoolean(RECORDARME, true);
             pref.edit().commit();
